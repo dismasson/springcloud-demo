@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sxli</groupId>
+    <artifactId>springcloud-parent</artifactId>
+    <version>1.0</version>
+    <modules>
+        <!-- eureka服务注册中心 -->
+        <module>springcloud-eureka-server</module>
+        <!-- eureka服务提供者 -->
+        <module>springcloud-eureka-producer</module>
+        <!-- eureka服务注册中心高可用 -->
+        <module>springcloud-eureka-server-ha</module>
+        <!-- eureka服务提供者高可用 -->
+        <module>springcloud-eureka-producer-ha</module>
+        <!-- eureka服务注册中心事件编程 -->
+        <module>springcloud-eureka-server-event</module>
+        <!-- eureka服务提供者事件编程 -->
+        <module>springcloud-eureka-producer-event</module>
+        <!-- 客户端负载均衡-服务消费者 -->
+        <module>springcloud-ribbon-consumer</module>
+        <!-- 客户端负载均衡-服务提供者 -->
+        <module>springcloud-ribbon-producer</module>
+        <!-- 客户端负载均衡配置-单个服务 -->
+        <module>springcloud-ribbon-config-single</module>
+        <!-- 客户端负载均衡配置-多个服务 -->
+        <module>springcloud-ribbon-config-multiple</module>
+        <!-- 客户端负载均衡-取消依赖eureka,不推荐使用,所有服务节点靠手动去更新发版,无法动态获取 -->
+        <module>springcloud-ribbon-consumer-without-eureka</module>
+        <!-- 微服务断路器-服务消费者 -->
+        <module>springcloud-hystrix-consumer</module>
+        <!-- 微服务断路器-配置 -->
+        <module>springcloud-hystrix-config</module>
+        <!-- 微服务断路器-仪表盘 -->
+        <module>springcloud-hystrix-dashboard</module>
+        <!-- 微服务断路器-仪表盘集群监控 -->
+        <module>springcloud-turbine</module>
+        <!-- 微服务断路器-仪表盘集群监控demo -->
+        <module>springcloud-turbine-hystrix</module>
+        <!-- 微服务网关 -->
+        <module>springcloud-zuul</module>
+        <!-- 微服务调用链zipkin服务 -->
+        <module>springcloud-zipkin-server</module>
+        <!-- elasticsearch搜索引擎服务提供者 -->
+        <module>springcloud-elasticsearch-producer</module>
+        <!-- 消息驱动 hello 生产者 -->
+        <module>springcloud-stream-hello-producer</module>
+        <!-- 消息驱动 hello 消费者 -->
+        <module>springcloud-stream-hello-consumer</module>
+        <!-- 消息驱动 消息分组 生产者 -->
+        <module>springcloud-stream-group-producer</module>
+        <!-- 消息驱动 消息分组 消费者 -->
+        <module>springcloud-stream-group-consumer</module>
+        <!-- 消息驱动 消息分组 消费者2 测试是否集群环境下多个消费者接收到同一条消息-->
+        <module>springcloud-stream-group-consumer2</module>
+        <!-- 消息驱动 多个mq配置，如跟别的项目组需要通过MQ通信，引用别人提供的MQ服务，
+        此处的消息发送消费者在springcloud-stream-group-consumer以及springcloud-stream-group-consumer2 -->
+        <module>springcloud-stream-multiple-mq</module>
+        <!-- sleuth 微服务追踪生产者 -->
+        <module>springcloud-sleuth-producer</module>
+        <module>springcloud-sleuth-common</module>
+        <module>springcloud-feign-consumer</module>
+        <module>springcloud-oauth2</module>
+        <module>springcloud-user-producer</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <name>springcloud-parent</name>
+    <description>springcloud学习代码</description>
+
+    <!-- 引用springboot parent -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.13.RELEASE</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Edgware.SR3</spring-cloud.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>

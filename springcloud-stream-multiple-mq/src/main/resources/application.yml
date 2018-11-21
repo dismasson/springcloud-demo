@@ -1,0 +1,26 @@
+spring:
+  rabbitmq:
+      addresses: 47.98.116.157,47.98.116.157,47.98.116.157
+      port: 5672
+      username: sxli
+      password: 123456
+  application:
+    name: stream-multiple-mq
+  cloud:
+    stream:
+      bindings:
+        outputProduct:
+          destination: exchangeProduct
+          binder: rabbit1
+      binders:
+        rabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 47.98.116.157
+                port: 5672
+                username: sxli
+                password: 123456
+server:
+  port: 9080

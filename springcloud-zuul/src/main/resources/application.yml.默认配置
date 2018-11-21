@@ -1,0 +1,29 @@
+## 应用配置
+spring:
+  application:
+    name: zuul-proxy
+server:
+  port: 7701
+
+## 注册中心配置
+eureka:
+  ## 微服务实例配置
+  instance:
+    ## 指定微服务实例的名称,此优先级配置在spring.application.name之上,也就是说如果此配置生效,那么微服务名称就是这里指定的
+    appname: zuul-proxy
+    ## 指定IP地址
+    #ip-address: 10.1.190.114
+    ## 是否采用指定的IP地址,如果eureka.instance.ip-address有指定IP,那么久选用指定的IP,不建议自定义IP,让springcloud自动去获取本机IP
+    #prefer-ip-address: true
+    ## 实例ID规则
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    ## 续约频率,设置保持微服务客户端发送心跳的时间,单位s
+    lease-renewal-interval-in-seconds: 1
+    ## 续约时间,超过这个时间后微服务客户端注销,跟续约频率结合可以在开发环境下实现快速的微服务下线,可以立马看到修改后的东西
+    lease-expiration-duration-in-seconds: 3
+    #instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    #instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      ## 服务注册中心开启安全校验后服务注册中心地址填写 http://username:password@host:port/eureka/
+      defaultZone: http://sxli:sxli@localhost:8761/eureka/

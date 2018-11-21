@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    addresses: 47.98.116.157
+    port: 5672
+    username: sxli
+    password: 123456
+  cloud:
+    stream:
+      bindings:
+        outputProduct:
+          destination: exchangeProduct
+  application:
+    name: stream-group-producer
+server:
+  port: 9080

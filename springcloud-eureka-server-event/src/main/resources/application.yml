@@ -1,0 +1,26 @@
+## 应用配置
+spring:
+  application:
+    name: eureka-server
+
+server:
+  port: 8761
+
+## 注册中心配置
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    ## 自我保护模式,当出现网络故障等原因时候,eureka注册中心丢失过多的客户端的时候,会进入自我保护模式,即一个服务长时间内没有发送心跳，eureka也不会将其从注册中心剔除
+    enable-self-preservation: false # 开发环境可以设置成不开启自我保护模式,方便在做出修改后能够快速的看到修改结果
+    eviction-interval-timer-in-ms: 1000 # 指定多久进行一次清理无效注册,开发环境下这个值可以设置小一些,单位是ms,默认值是一分钟
+
+## 安全配置
+security:
+  basic:
+    enabled: true # 开启安全校验,必须通过安全校验才能注册到注册中心
+  user:
+    name: sxli
+    password: sxli
+
