@@ -16,12 +16,12 @@ public class RibbonClientConfiguration {
     /**
      *  Ribbon负载均衡方式-官方有7种可用负载方式
      *  RandomRule  随机负载均衡
-     *  ZoneAvoidanceRule 默认负载均衡方式,按照eureka划分的区域(如果在eureka客户端指定区域),会剔除掉不可用的区域以及那些高并发的区域
+     *  ZoneAvoidanceRule 按照eureka划分的区域(如果在eureka客户端指定区域),会剔除掉不可用的区域以及那些高并发的区域
      *  BestAvailableRule 选择当前最少并发请求的server
      *  WeightedResponseTimeRule 权重,根据server响应时间来判断权重
      *  RetryRule 带有重试机制的负载均衡
-     *  RoundRobinRule 轮询
-     *  AvailabilityFilteringRule 过滤掉一直连接失败被标记的server,并且过滤掉那些并发量很高的server
+     *  RoundRobinRule 轮询，默认负载均衡方式
+     *  AvailabilityFilteringRule 过滤掉一直连接失败被标记的server（熔断机制）,并且过滤掉那些并发量很高的server
      */
     @Bean
     public IRule ribbonRule(IClientConfig config) {
