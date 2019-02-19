@@ -58,12 +58,10 @@
         <!-- 消息驱动 多个mq配置，如跟别的项目组需要通过MQ通信，引用别人提供的MQ服务，
         此处的消息发送消费者在springcloud-stream-group-consumer以及springcloud-stream-group-consumer2 -->
         <module>springcloud-stream-multiple-mq</module>
-        <!-- sleuth 微服务追踪生产者 -->
-        <module>springcloud-sleuth-producer</module>
-        <module>springcloud-sleuth-common</module>
         <module>springcloud-feign-consumer</module>
         <module>springcloud-oauth2</module>
         <module>springcloud-user-producer</module>
+        <module>springcloud-config-server</module>
     </modules>
 
     <packaging>pom</packaging>
