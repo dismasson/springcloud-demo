@@ -62,6 +62,7 @@
         <module>springcloud-oauth2</module>
         <module>springcloud-user-producer</module>
         <module>springcloud-config-server</module>
+        <module>springcloud-config-client</module>
     </modules>
 
     <packaging>pom</packaging>
