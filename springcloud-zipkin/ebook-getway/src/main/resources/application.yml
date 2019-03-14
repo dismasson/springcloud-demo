@@ -2,12 +2,13 @@
 spring:
   application:
     name: ebook-getway
+  zipkin:
+    base-url: http://localhost:7777
   sleuth:
-    enabled: true
+    sampler:
+      percentage: 1
 server:
   port: 7701
-
-
 
 ## 注册中心配置
 eureka:

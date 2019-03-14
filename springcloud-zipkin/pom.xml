@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud-parent</artifactId>
+        <groupId>com.sxli</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springcloud-zipkin</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <!-- sleuth演示电子书购买系统网关 -->
+        <module>ebook-getway</module>
+        <!-- sleuth演示电子书购买系统订单服务 -->
+        <module>ebook-order</module>
+        <!-- sleuth演示电子书购买系统支付服务 -->
+        <module>ebook-payment</module>
+        <!-- 调用链追踪 -->
+        <module>ebook-zipkin</module>
+    </modules>
+
+
+</project>

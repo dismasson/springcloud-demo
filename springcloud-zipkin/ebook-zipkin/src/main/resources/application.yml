@@ -1,20 +1,31 @@
 ## 应用配置
 spring:
   application:
-    name: ebook-getway
+    name: ebook-zipkin
   sleuth:
     enabled: true
 server:
-  port: 7701
+  port: 7777
 
-
+## zipkin配置
+zipkin:
+  storage:
+    ## 数据存储类型采用es
+    type: elasticsearch
+    StorageComponent: elasticsearch
+    cluster: elasticsearch
+    elasticsearch:
+      hosts: 47.98.116.157:9200
+      index: zipkin
+      index-shards: 5
+      index-replicas: 2
 
 ## 注册中心配置
 eureka:
   ## 微服务实例配置
   instance:
     ## 指定微服务实例的名称,此优先级配置在spring.application.name之上,也就是说如果此配置生效,那么微服务名称就是这里指定的
-    appname: ebook-getway
+    appname: ebook-zipkin
     ## 指定IP地址
     #ip-address: 10.1.190.114
     ## 是否采用指定的IP地址,如果eureka.instance.ip-address有指定IP,那么久选用指定的IP,不建议自定义IP,让springcloud自动去获取本机IP

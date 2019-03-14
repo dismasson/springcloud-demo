@@ -41,8 +41,8 @@
         <module>springcloud-turbine-hystrix</module>
         <!-- 微服务网关 -->
         <module>springcloud-zuul</module>
-        <!-- 微服务调用链zipkin服务 -->
-        <module>springcloud-zipkin-server</module>
+        <!-- 微服务调用链zipkin -->
+        <module>springcloud-zipkin</module>
         <!-- elasticsearch搜索引擎服务提供者 -->
         <module>springcloud-elasticsearch-producer</module>
         <!-- 消息驱动 hello 生产者 -->
