@@ -3,7 +3,7 @@ spring:
   application:
     name: ebook-order
 server:
-  port: 10086
+  port: 10031
 
 ## 注册中心配置
 eureka:

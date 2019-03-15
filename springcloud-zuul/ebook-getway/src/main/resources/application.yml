@@ -1,7 +1,12 @@
 ## 应用配置
 spring:
   application:
-    name: zuul-proxy
+    name: ebook-getway
+  zipkin:
+    base-url: http://localhost:7777
+  sleuth:
+    sampler:
+      percentage: 1
 server:
   port: 7701
 
@@ -10,7 +15,7 @@ eureka:
   ## 微服务实例配置
   instance:
     ## 指定微服务实例的名称,此优先级配置在spring.application.name之上,也就是说如果此配置生效,那么微服务名称就是这里指定的
-    appname: zuul-proxy
+    appname: ebook-getway
     ## 指定IP地址
     #ip-address: 10.1.190.114
     ## 是否采用指定的IP地址,如果eureka.instance.ip-address有指定IP,那么久选用指定的IP,不建议自定义IP,让springcloud自动去获取本机IP

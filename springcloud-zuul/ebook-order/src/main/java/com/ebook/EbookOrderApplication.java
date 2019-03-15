@@ -1,15 +1,15 @@
-package com.sxli.springcloud.zuul;
+package com.ebook;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableZuulProxy
-public class ZuulApplication {
+@EnableFeignClients
+public class EbookOrderApplication {
     public static void main(String[] args) {
-        new SpringApplicationBuilder(ZuulApplication.class).web(true).run(args);
+        new SpringApplicationBuilder(EbookOrderApplication.class).web(true).run(args);
     }
 }

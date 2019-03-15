@@ -10,22 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springcloud-zuul</artifactId>
-
-    <dependencies>
-        <!-- web服务依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- eureka客户端依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
-        <!-- zuul网关依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zuul</artifactId>
-        </dependency>
-    </dependencies>
+    <packaging>pom</packaging>
+    <modules>
+        <!-- sleuth演示电子书购买系统网关 -->
+        <module>ebook-getway</module>
+        <!-- sleuth演示电子书购买系统订单服务 -->
+        <module>ebook-order</module>
+        <!-- sleuth演示电子书购买系统支付服务 -->
+        <module>ebook-payment</module>
+        <module>ebook-common</module>
+    </modules>
 </project>
